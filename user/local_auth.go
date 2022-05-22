@@ -1,4 +1,6 @@
 /// local_auth.go 用户密码验证模型
+package user
+
 import (
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
@@ -20,7 +22,7 @@ func (auth *LocalAuth) HashPassword(password string) error {
 }
 
 /// CheckPasswordHash 校验密码
-func (auth *LocalAuth) CheckPasswordHash(password string) error {
-	err := bcrypt.CompareHashAndPassword([]byte(a.PasswordHash), []byte(password))
+func (auth *LocalAuth) CheckPasswordHash(password string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(auth.PasswordHash), []byte(password))
 	return err == nil
 }

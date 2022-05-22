@@ -81,14 +81,15 @@ func (api *UserAPI) FindUser(c *gin.Context) {
 		resp.Message = "服务出错，请联系管理员."
 		c.JSON(http.StatusOK, resp)
 
-		return 
+		return
 	}
 
 	loginResponseEntity := LoginResponseEntity{
 		AccessToken: accessToken,
 	}
 	resp.Success = true
-	resp.ErrorMessage = "用户登录成功",
+	resp.Message = "用户登录成功"
 	resp.Data = loginResponseEntity
+
 	c.JSON(http.StatusOK, resp)
 }
