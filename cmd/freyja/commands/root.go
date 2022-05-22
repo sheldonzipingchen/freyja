@@ -4,6 +4,7 @@ import (
 	"freyja/config"
 	"freyja/db"
 	"freyja/lg"
+	"freyja/rd"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -31,6 +32,7 @@ func initConfig() {
 	config.Init(environment)
 	lg.Init()
 	db.Init()
+	rd.Init()
 }
 
 func Execute() {
