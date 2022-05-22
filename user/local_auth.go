@@ -14,6 +14,10 @@ type LocalAuth struct {
 	UserID       uint   `gorm:"comment:'关联到 User 的外键'"`
 }
 
+func (LocalAuth) TableName() string {
+	return "freyja.local_auth"
+}
+
 /// HashPassword 对密码明文进行Hash运算
 func (auth *LocalAuth) HashPassword(password string) error {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)

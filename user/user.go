@@ -9,3 +9,7 @@ type User struct {
 	Name      string    `gorm:"comment:'用户昵称'"`
 	LocalAuth LocalAuth `gorm:"comment:'用户密码验证信息'"`
 }
+
+func (User) TableName() string {
+	return "freyja.users"
+}
