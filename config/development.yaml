@@ -4,13 +4,13 @@ db:
   port: 5432
   username: postgres
   password:
-  database: facial_development
+  database: freyja_development
 
 log:
   timestampFormat: 2006-01-02 15:04:05
   level: debug # 可以设置 "debug" "info" "warn" "error" "fatal"
   # file:
-  #   path: /var/log/facial/access.log
+  #   path: /var/log/freyja/access.log
 
 redis:
   ip: 127.0.0.1
