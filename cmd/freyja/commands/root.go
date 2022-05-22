@@ -23,6 +23,8 @@ func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVarP(&environment, "environment", "e", "development", "应用运行的模式(development, test, production)")
 
+	// 添加 apiserver 命令
+	rootCmd.AddCommand(apiServerCommand)
 }
 
 func initConfig() {
