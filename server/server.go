@@ -1,4 +1,4 @@
-/// server.go API 服务初始化
+// server.go API 服务初始化
 package server
 
 import (

@@ -1,4 +1,4 @@
-/// response.go api 响应相关定义
+// response.go api 响应相关定义
 package web
 
 import (
@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-/// Response 响应模型
+// Response 响应模型
 type Response struct {
 	Success bool        `json:"success"`
 	Code    string      `json:"code"`
@@ -19,7 +19,7 @@ func (r *Response) String() string {
 	return fmt.Sprintf("Success: %v, Code: %v, Message: %v, Data: %v", r.Success, r.Code, r.Message, r.Data)
 }
 
-/// GetGinResponse 生成Gin响应请求
+// GetGinResponse 生成Gin响应请求
 func (r *Response) GetGinResponse() map[string]interface{} {
 	return gin.H{
 		"success": r.Success,

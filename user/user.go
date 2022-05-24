@@ -1,9 +1,9 @@
-/// user.go 用户基础模型
+// user.go 用户基础模型
 package user
 
 import "gorm.io/gorm"
 
-/// User 用户基础模型定义
+// User 用户基础模型定义
 type User struct {
 	gorm.Model
 	Name      string    `gorm:"comment:'用户昵称'"`

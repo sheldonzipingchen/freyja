@@ -1,4 +1,4 @@
-/// 数据库连接设置
+// 数据库连接设置
 package db
 
 import (
@@ -48,7 +48,7 @@ func Init() {
 
 }
 
-/// GetDB 获取数据库
+// GetDB 获取数据库
 func GetDB() *gorm.DB {
 	return db
 }

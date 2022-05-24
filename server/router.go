@@ -1,4 +1,4 @@
-/// router.go API 路由配置
+// router.go API 路由配置
 package server
 
 import (

@@ -9,7 +9,7 @@ import (
 
 var config *viper.Viper
 
-/// Init 初始化配置环境信息
+// Init 初始化配置环境信息
 func Init(env string) {
 	config = viper.New()
 	config.SetConfigType("yaml")
@@ -25,7 +25,7 @@ func Init(env string) {
 
 }
 
-/// GetConfig 返回配置信息
+// GetConfig 返回配置信息
 func GetConfig() *viper.Viper {
 	return config
 }

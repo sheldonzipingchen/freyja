@@ -72,7 +72,7 @@ func Init() {
 
 }
 
-/// GetLog 获取日志
+// GetLog 获取日志
 func GetLog() *logrus.Logger {
 	return log
 }

@@ -1,4 +1,4 @@
-/// route.go API 路由定义
+// route.go API 路由定义
 package user
 
 import (
@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-/// UserAPP 用户API路由设置
+// UserAPP 用户API路由设置
 func UserAPP(db *gorm.DB, rdb *redis.Client, router *gin.RouterGroup) {
 	db.AutoMigrate(&LocalAuth{})
 	db.AutoMigrate(&User{})

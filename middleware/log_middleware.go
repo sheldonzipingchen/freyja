@@ -1,4 +1,4 @@
-/// log_middleware Gin日志中间件
+// log_middleware Gin日志中间件
 package middleware
 
 import (
@@ -9,7 +9,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-/// LoggerMiddleware Gin日志中间件
+// LoggerMiddleware Gin日志中间件
 func LoggerMiddleware() gin.HandlerFunc {
 	log := lg.GetLog()
 

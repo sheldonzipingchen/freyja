@@ -1,4 +1,4 @@
-/// user_api.go API定义
+// user_api.go API定义
 package user
 
 import (
@@ -16,13 +16,13 @@ import (
 	"gorm.io/gorm"
 )
 
-/// UserAPI API定义
+// UserAPI API定义
 type UserAPI struct {
 	DB  *gorm.DB
 	RDB *redis.Client
 }
 
-/// FindUser 查找用户信息(登录API方法)
+// FindUser 查找用户信息(登录API方法)
 func (api *UserAPI) FindUser(c *gin.Context) {
 	resp := &web.Response{}
 

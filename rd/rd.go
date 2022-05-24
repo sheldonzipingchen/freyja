@@ -1,4 +1,4 @@
-/// rd.go redis客户端配置
+// rd.go redis客户端配置
 package rd
 
 import (
@@ -12,7 +12,7 @@ import (
 
 var rdb *redis.Client
 
-/// Init 初始化Redis客户端的连接
+// Init 初始化Redis客户端的连接
 func Init() {
 	c := config.GetConfig()
 	log := lg.GetLog()
@@ -46,7 +46,7 @@ func Init() {
 
 }
 
-/// GetRDB 返回Redis客户端连接
+// GetRDB 返回Redis客户端连接
 func GetRDB() *redis.Client {
 	return rdb
 }
