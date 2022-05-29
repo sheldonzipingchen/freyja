@@ -15,4 +15,5 @@ func UserAPP(db *gorm.DB, rdb *redis.Client, router *gin.RouterGroup) {
 	userAPI := &UserAPI{DB: db, RDB: rdb}
 
 	router.POST("/users/login", userAPI.FindUser)
+	router.POST("/users/register", userAPI.CreateUser)
 }
