@@ -37,6 +37,7 @@ func (api *UserAPI) FindUser(c *gin.Context) {
 		}).Error("FindUser Request Error.")
 
 		resp.Success = false
+		resp.Code = web.PARAM_ERR
 		resp.Message = "用户登录错误"
 		c.JSON(http.StatusOK, resp)
 		return
@@ -63,6 +64,7 @@ func (api *UserAPI) FindUser(c *gin.Context) {
 			"error": err,
 		}).Warn("Password is not correct.")
 		resp.Success = false
+		resp.Code = web.SYS_ERR
 		resp.Message = "用户名或密码错误"
 		c.JSON(http.StatusOK, resp)
 		return
@@ -79,6 +81,7 @@ func (api *UserAPI) FindUser(c *gin.Context) {
 			"error": err,
 		}).Warn("Save accesstoken to redis server error.")
 		resp.Success = false
+		resp.Code = web.SYS_ERR
 		resp.Message = "服务出错，请联系管理员."
 		c.JSON(http.StatusOK, resp)
 
@@ -89,6 +92,7 @@ func (api *UserAPI) FindUser(c *gin.Context) {
 		AccessToken: accessToken,
 	}
 	resp.Success = true
+	resp.Code = web.SUCCESS
 	resp.Message = "用户登录成功"
 	resp.Data = loginResponseEntity
 
@@ -107,6 +111,7 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 		}).Error("CreateUser Request Error.")
 
 		resp.Success = false
+		resp.Code = web.PARAM_ERR
 		resp.Message = "请求参数有误，请检查后再重新提交"
 		c.JSON(http.StatusOK, resp)
 
@@ -136,6 +141,7 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 					}).Error("Hash User Password Error.")
 
 					resp.Success = false
+					resp.Code = web.SYS_ERR
 					resp.Message = "系统错误，请联系管理员"
 
 					c.JSON(http.StatusOK, resp)
@@ -154,6 +160,7 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 					}).Error("Create User Error.")
 
 					resp.Success = false
+					resp.Code = web.SYS_ERR
 					resp.Message = "用户创建失败"
 
 					c.JSON(http.StatusOK, resp)
@@ -161,6 +168,7 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 				}
 
 				resp.Success = true
+				resp.Code = web.SUCCESS
 				resp.Message = "用户创建成功"
 
 				c.JSON(http.StatusOK, resp)
@@ -171,6 +179,7 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 
 			// 用户密码不一致
 			resp.Success = false
+			resp.Code = web.SYS_ERR
 			resp.Message = "用户两次密码不一致"
 
 			c.JSON(http.StatusOK, resp)
@@ -183,11 +192,19 @@ func (api *UserAPI) CreateUser(c *gin.Context) {
 				"error": err,
 			}).Error("Register User Email Error.")
 
+			resp.Success = false
+			resp.Code = web.SYS_ERR
+			resp.Message = "系统错误，请联系管理员"
+
+			c.JSON(http.StatusOK, resp)
+			return
+
 		}
 
 	} else {
 		// 邮箱已存在
 		resp.Success = false
+		resp.Code = web.SYS_ERR
 		resp.Message = "用户邮箱已被注册"
 
 		c.JSON(http.StatusOK, resp)
