@@ -4,6 +4,7 @@ import (
 	"freyja/config"
 	"freyja/db"
 	"freyja/lg"
+	"freyja/migrate"
 	"freyja/rd"
 
 	"github.com/sirupsen/logrus"
@@ -32,6 +33,8 @@ func initConfig() {
 	config.Init(environment)
 	lg.Init()
 	db.Init()
+	migrate.Init()
+	migrate.InitMigrate()
 	rd.Init()
 }
 
