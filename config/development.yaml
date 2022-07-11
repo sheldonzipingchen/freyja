@@ -6,6 +6,11 @@ db:
   password:
   database: freyja_development
 
+  pool:
+    maxIdleConns: 10
+    maxOpenConns: 100
+    connMaxLifeTime: 1
+
 log:
   timestampFormat: 2006-01-02 15:04:05
   level: debug # 可以设置 "debug" "info" "warn" "error" "fatal"
