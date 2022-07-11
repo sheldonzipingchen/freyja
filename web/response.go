@@ -28,3 +28,13 @@ func (r *Response) GetGinResponse() map[string]interface{} {
 		"data":    r.Data,
 	}
 }
+
+// NewFatalResponse
+func NewFatalResponse(data interface{}, errorMessage string) Response {
+	return Response{
+		Success: false,
+		Code:    SYS_ERR,
+		Message: errorMessage,
+		Data:    data,
+	}
+}
