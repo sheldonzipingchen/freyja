@@ -1,7 +1,12 @@
 // user.go 用户基础模型
 package user
 
-import "gorm.io/gorm"
+import (
+	"fmt"
+	"freyja/utils"
+
+	"gorm.io/gorm"
+)
 
 // User 用户基础模型定义
 type User struct {
@@ -10,6 +15,7 @@ type User struct {
 	LocalAuth LocalAuth `gorm:"comment:'用户密码验证信息'"`
 }
 
+// TableName 用户基础模型 schema 及表名
 func (User) TableName() string {
-	return "freyja.users"
+	return fmt.Sprintf("%s.%s", utils.FREYJA, "users")
 }

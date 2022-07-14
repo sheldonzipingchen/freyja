@@ -2,6 +2,9 @@
 package user
 
 import (
+	"fmt"
+	"freyja/utils"
+
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
@@ -14,8 +17,9 @@ type LocalAuth struct {
 	UserID       uint   `gorm:"comment:'关联到 User 的外键'"`
 }
 
+// TableName 用户密码验证信息 schema 及表名
 func (LocalAuth) TableName() string {
-	return "freyja.local_auth"
+	return fmt.Sprintf("%s.%s", utils.FREYJA, "local_auth")
 }
 
 // HashPassword 对密码明文进行Hash运算
